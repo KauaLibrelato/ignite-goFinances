@@ -18,4 +18,9 @@ export default {
 
     shadow: "rgba(0,0,0,0.4)",
   },
+  fonts: {
+    regular: "Poppins_400Regular",
+    medium: "Poppins_500Medium",
+    bold: "Poppins_700Bold",
+  },
 };

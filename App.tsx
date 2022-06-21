@@ -1,8 +1,9 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import { Register } from "./src/screens/Register";
 import theme from "./src/global/styles/theme";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppRoutes } from "./src/routes/app.routes";
 import {
   Poppins_400Regular,
   Poppins_500Medium,
@@ -28,7 +29,9 @@ export default function App() {
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <Register />
+        <NavigationContainer>
+          <AppRoutes />
+        </NavigationContainer>
       </ThemeProvider>
     );
   }

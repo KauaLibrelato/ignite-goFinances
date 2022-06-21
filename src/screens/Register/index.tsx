@@ -58,7 +58,7 @@ export function Register() {
     setCategoryModalOpen(true);
   }
 
-  async function handleRegister(form: FormData) {
+  async function handleRegister(form: FormData | any) {
     if (!transactionType) return Alert.alert("Selecione o tipo da transação");
 
     if (category.key === "category")

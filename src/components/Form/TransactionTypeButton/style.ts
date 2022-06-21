@@ -17,11 +17,23 @@ export const Container = styled.TouchableOpacity<ContainerProps>`
   align-items: center;
   padding: 16px;
   border-color: ${({ theme }) => theme.colors.text};
-  border-width: 1.5px;
+  border-width: ${({ isActive }) => (isActive ? 0 : 1.5)}px;
   justify-content: center;
   border-radius: 5px;
 
-  ${({isActive, type}) => isActive && type === "down" css ``}
+  ${({ isActive, type }) =>
+    isActive &&
+    type === "down" &&
+    css`
+      background-color: rgba(232, 63, 91, 0.5);
+    `}
+
+  ${({ isActive, type }) =>
+    isActive &&
+    type === "up" &&
+    css`
+      background-color: rgba(18, 164, 84, 0.5);
+    `}
 `;
 
 export const Icon = styled(Feather)<IconProps>`

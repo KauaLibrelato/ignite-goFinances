@@ -1,6 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-
+import "intl";
+import "intl/locale-data/jsonp/pt-BR";
 import theme from "./src/global/styles/theme";
 import { NavigationContainer } from "@react-navigation/native";
 import { AppRoutes } from "./src/routes/app.routes";
@@ -12,6 +13,7 @@ import {
 } from "@expo-google-fonts/poppins";
 import AppLoading from "expo-app-loading";
 import { LogBox } from "react-native";
+import { SignIn } from "./src/screens/SignIn";
 
 LogBox.ignoreLogs([
   "expo-app-loading is deprecated in favor of expo-splash-screen",
@@ -32,6 +34,7 @@ export default function App() {
         <NavigationContainer>
           <AppRoutes />
         </NavigationContainer>
+        {/* <SignIn /> */}
       </ThemeProvider>
     );
   }

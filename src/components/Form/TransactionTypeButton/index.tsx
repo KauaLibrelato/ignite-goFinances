@@ -3,13 +3,13 @@ import { Container, Icon, Title } from "./style";
 import { TouchableOpacityProps } from "react-native";
 
 const icons = {
-  up: "arrow-up-circle",
-  down: "arrow-down-circle",
+  positive: "arrow-up-circle",
+  negative: "arrow-down-circle",
 };
 
 interface Props extends TouchableOpacityProps {
   title: string;
-  type: "up" | "down";
+  type: "positive" | "negative";
   isActive: boolean;
 }
 

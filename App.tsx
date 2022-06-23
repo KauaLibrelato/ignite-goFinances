@@ -31,10 +31,10 @@ export default function App() {
   } else {
     return (
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
+        {/* <NavigationContainer>
           <AppRoutes />
-        </NavigationContainer>
-        {/* <SignIn /> */}
+        </NavigationContainer> */}
+        <SignIn />
       </ThemeProvider>
     );
   }

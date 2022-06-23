@@ -1,4 +1,10 @@
 import React from "react";
+import { RFValue } from "react-native-responsive-fontsize";
+
+import AppleSvg from "../../assets/apple.svg";
+import GoogleSvg from "../../assets/google.svg";
+import LogoSvg from "../../assets/logo.svg";
+import { SignInSocialButton } from "../../components/SignInSocialButton";
 
 import {
   Container,
@@ -10,15 +16,12 @@ import {
   FooterWrapper,
 } from "./styles";
 
-import LogoSvg from "../../assets/logo.svg";
-import { RFValue } from "react-native-responsive-fontsize";
-
 export function SignIn() {
   return (
     <Container>
       <Header>
         <TitleWrapper>
-          {/* <LogoSvg width={RFValue(120)} height={RFValue(68)} /> */}
+          <LogoSvg width={RFValue(120)} height={RFValue(68)} />
           <Title>
             Controle suas{"\n"}finanças de forma{"\n"}muito simples
           </Title>
@@ -27,7 +30,9 @@ export function SignIn() {
         <SubTitle>Faça seu login com{"\n"} uma das contas abaixo</SubTitle>
       </Header>
       <Footer>
-        <FooterWrapper></FooterWrapper>
+        <FooterWrapper>
+          <SignInSocialButton title="Entrar com Google" svg={GoogleSvg} />
+        </FooterWrapper>
       </Footer>
     </Container>
   );

@@ -88,9 +88,7 @@ export function Register() {
     try {
       const data = await AsyncStorage.getItem(dataKey);
       const currentData = data ? JSON.parse(data) : [];
-
       const dataFormatred = [...currentData, newTransaction];
-
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatred));
 
       reset();
@@ -112,6 +110,7 @@ export function Register() {
       const data = await AsyncStorage.getItem(dataKey);
       console.log(JSON.parse(data!));
     }
+
     loadData();
   }, []);
 

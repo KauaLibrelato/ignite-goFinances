@@ -13,22 +13,25 @@ export const Header = styled.View`
   align-items: center;
 `;
 
-export const TitleWrapper = styled.View``;
+export const TitleWrapper = styled.View`
+  margin-bottom: 80px;
+  align-items: center;
+`;
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
   font-size: ${RFValue(30)}px;
   font-family: ${({ theme }) => theme.fonts.medium};
   text-align: center;
+  margin-top: 40px;
 `;
 
 export const SubTitle = styled.Text`
-  margin-bottom: ${RFValue(67)}px;
-  margin-top: ${RFValue(80)}px;
   color: ${({ theme }) => theme.colors.shape};
   font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.fonts.regular};
   text-align: center;
+  margin-bottom: 67px;
 `;
 
 export const Footer = styled.View`

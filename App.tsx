@@ -1,23 +1,18 @@
 import React from "react";
+import { LogBox, StatusBar } from "react-native";
 import { ThemeProvider } from "styled-components";
-import "intl";
-import "intl/locale-data/jsonp/pt-BR";
-import theme from "./src/global/styles/theme";
-import { NavigationContainer } from "@react-navigation/native";
-import { AppRoutes } from "./src/routes/app.routes";
+import AppLoading from "expo-app-loading";
+
 import {
+  useFonts,
   Poppins_400Regular,
   Poppins_500Medium,
   Poppins_700Bold,
-  useFonts,
 } from "@expo-google-fonts/poppins";
-import AppLoading from "expo-app-loading";
-import { LogBox } from "react-native";
-import { SignIn } from "./src/screens/SignIn";
 
-LogBox.ignoreLogs([
-  "expo-app-loading is deprecated in favor of expo-splash-screen",
-]);
+import theme from "./src/global/styles/theme";
+import Routes from "./src/routes";
+import { AuthProvider } from "./src/hooks/auth";
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -28,14 +23,14 @@ export default function App() {
 
   if (!fontsLoaded) {
     return <AppLoading />;
-  } else {
-    return (
-      <ThemeProvider theme={theme}>
-        {/* <NavigationContainer>
-          <AppRoutes />
-        </NavigationContainer> */}
-        <SignIn />
-      </ThemeProvider>
-    );
   }
+
+  return (
+    <ThemeProvider theme={theme}>
+      <StatusBar translucent backgroundColor={theme.colors.primary} />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
+    </ThemeProvider>
+  );
 }

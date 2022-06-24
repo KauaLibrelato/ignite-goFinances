@@ -5,7 +5,6 @@ import AppleSvg from "../../assets/apple.svg";
 import GoogleSvg from "../../assets/google.svg";
 import LogoSvg from "../../assets/logo.svg";
 import { SignInSocialButton } from "../../components/SignInSocialButton";
-
 import {
   Container,
   Header,
@@ -16,7 +15,21 @@ import {
   FooterWrapper,
 } from "./styles";
 
+import { useAuth } from "../../hooks/auth";
+import { Alert } from "react-native";
+
 export function SignIn() {
+  const { signInWithGoogle } = useAuth();
+
+  async function handleSignInWithGoogle() {
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      console.log(error);
+      Alert.alert("Não foi possível conectar a conta google");
+    }
+  }
+
   return (
     <Container>
       <Header>
@@ -31,7 +44,13 @@ export function SignIn() {
       </Header>
       <Footer>
         <FooterWrapper>
-          <SignInSocialButton title="Entrar com Google" svg={GoogleSvg} />
+          <SignInSocialButton
+            svg={GoogleSvg}
+            title={"Entrar com o Google"}
+            onPress={handleSignInWithGoogle}
+          />
+
+          <SignInSocialButton svg={AppleSvg} title={"Entrar com Apple"} />
         </FooterWrapper>
       </Footer>
     </Container>

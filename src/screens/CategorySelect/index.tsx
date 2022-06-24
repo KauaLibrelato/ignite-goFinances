@@ -45,6 +45,7 @@ export function CategorySelect({
         keyExtractor={(item: { key: any }) => item.key}
         renderItem={({ item }) => (
           <Category
+            activeOpacity={0.7}
             onPress={() => handleCategorySelect(item)}
             isActive={category.key === item.key}
           >

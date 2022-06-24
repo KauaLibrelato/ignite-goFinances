@@ -19,6 +19,7 @@ import {
   Fields,
   TransactionsTypes,
 } from "./styles";
+const dataKey = "@gofinances:transactions";
 
 interface FormData {
   name: string;
@@ -39,8 +40,6 @@ const schema = Yup.object().shape({
 export function Register() {
   const [transactionType, setTransactionType] = useState("");
   const [categoryModalOpen, setCategoryModalOpen] = useState(false);
-
-  const dataKey = "@gofinances:transactions";
 
   const [category, setCategory] = useState({
     key: "category",
@@ -88,7 +87,9 @@ export function Register() {
     try {
       const data = await AsyncStorage.getItem(dataKey);
       const currentData = data ? JSON.parse(data) : [];
+
       const dataFormatred = [...currentData, newTransaction];
+
       await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatred));
 
       reset();

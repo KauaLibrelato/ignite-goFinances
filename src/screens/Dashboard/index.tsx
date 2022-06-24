@@ -24,7 +24,8 @@ import {
   LogoutButton,
   LoadContainer,
 } from "./styles";
-import { useFocusEffect, useTheme } from "@react-navigation/native";
+import { useFocusEffect } from "@react-navigation/native";
+import { useTheme } from "styled-components";
 
 export interface DataListProps extends TransactionCardProps {
   id: string;

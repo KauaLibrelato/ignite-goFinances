@@ -24,6 +24,8 @@ interface User {
 interface IAuthContextData {
   user: User;
   signInWithGoogle(): Promise<void>;
+  signOut(): Promise<void>;
+  userStorageLoading: boolean;
 }
 
 interface AuthorizationResponse {
@@ -86,11 +88,18 @@ function AuthProvider({ children }: AuthProviderProps) {
     loadUserStorageData();
   }, []);
 
+  async function signOut() {
+    setUser({} as User);
+    await AsyncStorage.removeItem(userStorageKey);
+  }
+
   return (
     <AuthContext.Provider
       value={{
         user,
         signInWithGoogle,
+        signOut,
+        userStorageLoading,
       }}
     >
       {children}

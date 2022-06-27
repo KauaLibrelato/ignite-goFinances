@@ -140,7 +140,7 @@ export function Dashboard() {
           style: "currency",
           currency: "BRL",
         }),
-        lastTransaction: `${totalInterval}`,
+        lastTransaction: totalInterval,
       },
     });
 

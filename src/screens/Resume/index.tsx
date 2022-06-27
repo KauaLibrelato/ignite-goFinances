@@ -18,7 +18,6 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { categories } from "../../utils/categories";
 import { VictoryPie } from "victory-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import theme from "../../global/styles/theme";
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import { useTheme } from "styled-components/native";
 import { ActivityIndicator } from "react-native";
@@ -87,7 +86,7 @@ export function Resume() {
         }
       });
 
-      if (categorySum) {
+      if (categorySum > 0) {
         const totalFormatted = categorySum.toLocaleString("pt-BR", {
           style: "currency",
           currency: "BRL",

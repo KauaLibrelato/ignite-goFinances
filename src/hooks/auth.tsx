@@ -14,6 +14,13 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
+interface User {
+  id: string;
+  name: string;
+  email: string;
+  photo?: string;
+}
+
 interface IAuthContextData {
   user: User;
   signInWithGoogle(): Promise<void>;
@@ -24,13 +31,6 @@ interface AuthorizationResponse {
     access_token: string;
   };
   type: string;
-}
-
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  photo?: string;
 }
 
 const AuthContext = createContext({} as IAuthContextData);
@@ -57,12 +57,14 @@ function AuthProvider({ children }: AuthProviderProps) {
           `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${params.access_token}`
         );
         const userInfo = await response.json();
+
         const userLogged = {
           id: userInfo.id,
           email: userInfo.email,
           name: userInfo.given_name,
           photo: userInfo.picture,
         };
+
         setUser(userLogged);
         await AsyncStorage.setItem(userStorageKey, JSON.stringify(userLogged));
       }

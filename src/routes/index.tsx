@@ -10,7 +10,7 @@ const Routes: React.FC = () => {
 
   return (
     <NavigationContainer>
-      {user.name ? <AppRoutes /> : <AuthRoutes />}
+      {user.id ? <AppRoutes /> : <AuthRoutes />}
     </NavigationContainer>
   );
 };

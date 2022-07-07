@@ -18,6 +18,7 @@ import {
 import { useAuth } from "../../hooks/auth";
 import { ActivityIndicator, Alert, Platform } from "react-native";
 import { useTheme } from "styled-components";
+import { LoadAnimation } from "../../components/LoadAnimation";
 
 export function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
@@ -59,12 +60,7 @@ export function SignIn() {
             <SignInSocialButton svg={AppleSvg} title={"Entrar com Apple"} />
           )}
         </FooterWrapper>
-        {isLoading && (
-          <ActivityIndicator
-            color={theme.colors.shape}
-            style={{ marginTop: 18 }}
-          />
-        )}
+        {isLoading && <LoadAnimation />}
       </Footer>
     </Container>
   );

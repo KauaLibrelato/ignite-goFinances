@@ -27,6 +27,7 @@ import {
 import { useFocusEffect } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 import { useAuth } from "../../hooks/auth";
+import { LoadAnimation } from "../../components/LoadAnimation";
 
 export interface DataListProps extends TransactionCardProps {
   id: string;
@@ -177,9 +178,7 @@ export function Dashboard() {
   return (
     <Container>
       {isLoading ? (
-        <LoadContainer>
-          <ActivityIndicator color={theme.colors.primary} size="large" />
-        </LoadContainer>
+        <LoadAnimation />
       ) : (
         <>
           <Header>

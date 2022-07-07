@@ -26,6 +26,7 @@
     "expo-splash-screen": "~0.15.1",
     "expo-status-bar": "~1.3.0",
     "intl": "^1.2.5",
+    "lottie-react-native": "^5.1.3",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-hook-form": "^7.32.2",
@@ -45,11 +46,20 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@testing-library/jest-native": "^4.0.5",
+    "@testing-library/react-native": "^10.1.1",
     "@types/react": "~17.0.21",
     "@types/react-native": "~0.64.12",
     "@types/styled-components-react-native": "^5.1.3",
+    "jest-expo": "^45.0.1",
     "react-native-svg-transformer": "^1.0.0",
     "typescript": "~4.3.5"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "private": true
 }

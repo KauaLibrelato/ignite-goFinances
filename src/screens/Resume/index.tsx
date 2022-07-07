@@ -23,6 +23,7 @@ import { useTheme } from "styled-components/native";
 import { ActivityIndicator } from "react-native";
 import { useFocusEffect } from "@react-navigation/native";
 import { useAuth } from "../../hooks/auth";
+import { LoadAnimation } from "../../components/LoadAnimation";
 
 interface TransactionData {
   type: "positive" | "negative";
@@ -126,9 +127,7 @@ export function Resume() {
       </Header>
 
       {isLoading ? (
-        <LoadContainer>
-          <ActivityIndicator color={theme.colors.primary} size="large" />
-        </LoadContainer>
+        <LoadAnimation />
       ) : (
         <>
           <Content
